@@ -1,0 +1,6 @@
+Homework
+1. Study: Linq
+
+3. Task 2: 
+Complete 'Read File' task in the lesson 0.
+Fill data to DataGridView
