@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Multiples_of_3_and_5
 {
@@ -11,20 +8,25 @@ namespace Multiples_of_3_and_5
         static void Main(string[] args)
         {
             Console.WriteLine("Multiples of 3 and 5");
-            int sum = 0;
+            var sum = GetSum(1000);
 
-            for (int i = 0; i < 1000; i++)
+            Console.WriteLine("sum of all the multiples of 3 or 5 below 1000: {0}", sum);
+            Console.ReadKey();
+        }
+
+        private static int GetSum(int number)
+        {
+            var sum = 0;
+
+            for (var i = 0; i < number; i++)
             {
-                if ((i % 3) == 0) { sum += i; }
-                else
+                if (i % 3 == 0 || i % 5 ==0)
                 {
-                    if ((i % 5) == 0) { sum += i; }
+                    sum += i;
                 }
             }
 
-            
-            Console.WriteLine("sum of all the multiples of 3 or 5 below 1000: {0}", sum);
-            Console.ReadKey();
+            return sum;
         }
     }
 }

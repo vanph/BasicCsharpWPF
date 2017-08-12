@@ -12,10 +12,17 @@ namespace Practice.Problems
     {
         public int Sum(int exclusiveUpperNumber)
         {
-            return Enumerable.Range(0, exclusiveUpperNumber)
-                             .Where(x => x % 3 == 0 || x % 5 == 0)
-                             .Sum();
+            var sum = 0;
 
+            for (var i = 0; i < exclusiveUpperNumber; i++)
+            {
+                if (i % 3 == 0 || i % 5 == 0)
+                {
+                    sum += i;
+                }
+            }
+
+            return sum;
         }
     }
 }

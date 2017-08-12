@@ -3,41 +3,12 @@
 3. Modify code and push the updated code to git
 4. Overview VS
 5. Create a console app: Helloworld 
-6. Book (Name : string, Grade : int)
-7. Value types and reference types
-8. Exercise
+6. Multiple of 3 and 5 problem 
+7. Book (Name : string, Grade : int)
+
+Homework
 Create a list 10 books.
 Find Min, Max, Avg of grade of the books.
 Find the book(s) that has the max grade.
-Delete the book(s) that has min grade. 
 
-Homework
-1. Study 'Linq to Object'
-2. Solve problem:
 
-Problem 1: Multiples of 3 and 5
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-Find the sum of all the multiples of 3 or 5 below 1000.
-
-3. Task: Read File.
-We have: class Employee(FirstName,Surname,EmailAddress)
-You need:
-+ read employee.txt file
-+ map each row to an employee
-+ display all employees on the screen.
-
-For example Employee.txt data:
-FirstName:Anton | Surname:Balaz | EmailAddress:anton.solictor@example.com
-FirstName:Anton | Surname:Unverified | EmailAddress:Anton.unverified@example.com
-FirstName:Arnold | Surname:Dvstest | EmailAddress:arnold.accountant@example.com
-FirstName:Barbara | Surname:Petzold | EmailAddress:barbara.guarantor@example.com
-FirstName:Barbara | Surname:Santa | EmailAddress:barbara.tenant@example.com
-FirstName:Big | Surname:Admin | EmailAddress:BigAdmin@example.com
-FirstName:Charmaine | Surname:Sheh | EmailAddress:charmaine.delegate@example.com
-FirstName:Charmaine | Surname:Sinatra | EmailAddress:charmaine.tenant@example.com
-FirstName:Hamish | Surname:Leighton | EmailAddress:Hamish.Director@example.com
-FirstName:Joel | Surname:Coen | EmailAddress:joel.guarantor@example.com
-FirstName:Mike | Surname:Quill | EmailAddress:mike.director@example.com
-FirstName:Nelly | Surname:Sachs | EmailAddress:Nelly.Sachs@example.com
-FirstName:Sean | Surname:Paul | EmailAddress:Sean.Landlord@example.com
-FirstName:Shaun | Surname:Daly | EmailAddress:shaun.solicitor@example.com
