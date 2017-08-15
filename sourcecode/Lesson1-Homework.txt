@@ -1,7 +1,6 @@
 
 Homework
 1. Study 'Linq': https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries
-
 2.Task: Read File.
 We have: class Employee(FirstName,Surname,EmailAddress)
 You need:
