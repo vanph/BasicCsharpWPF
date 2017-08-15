@@ -62,5 +62,8 @@ FirstName:Sean | Surname:Paul | EmailAddress:Sean.Landlord@example.com
 FirstName:Shaun | Surname:Daly | EmailAddress:shaun.solicitor@example.com
 
 Refer:
+http://cc.davelozinski.com/c-sharp/fastest-way-to-read-text-files
+http://cc.davelozinski.com/c-sharp/the-fastest-way-to-read-and-process-text-files
+
 File.ReadAllLines(filePath);
 Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
