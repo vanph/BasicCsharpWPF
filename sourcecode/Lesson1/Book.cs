@@ -1,4 +1,10 @@
-﻿namespace Practice.App
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lesson1
 {
     public class Book
     {
@@ -9,7 +15,7 @@
 
         public Book()
         {
-            
+
         }
 
         public Book(string name)
