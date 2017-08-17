@@ -39,37 +39,37 @@ namespace Practice.App
             //}
 
 
-            //Count
-            int count = books.Count;
-            Console.WriteLine("Total books:" + count);
+            ////Count
+            //int count = books.Count;
+            //Console.WriteLine("Total books:" + count);
 
-            //Max of grade of the books:
-            int max = books.Max(x => x.Grade);
-            Console.WriteLine("Max grade:" + max);
-            //The books has the max grade
+            ////Max of grade of the books:
+            //int max = books.Max(x => x.Grade);
+            //Console.WriteLine("Max grade:" + max);
+            ////The books has the max grade
 
-            Console.WriteLine("Listing Max Books1:");
-            var maxBooks = books.Where(x => x.Grade == max).ToList();
-            PrintBooks(maxBooks);
+            //Console.WriteLine("Listing Max Books1:");
+            //var maxBooks = books.Where(x => x.Grade == max).ToList();
+            //PrintBooks(maxBooks);
 
 
-            Console.WriteLine("Listing Max Book Names:");
+            //Console.WriteLine("Listing Max Book Names:");
 
-            var maxBookNames = books.Where(x => x.Grade == max).Select(x => x.Name).ToList();
-            foreach (var name in maxBookNames)
-            {
-                Console.WriteLine(name);
-            }
+            //var maxBookNames = books.Where(x => x.Grade == max).Select(x => x.Name).ToList();
+            //foreach (var name in maxBookNames)
+            //{
+            //    Console.WriteLine(name);
+            //}
 
-            var avg = books.Select(x => x.Grade).Average();
-            Console.WriteLine("Average:" + avg);
+            //var avg = books.Select(x => x.Grade).Average();
+            //Console.WriteLine("Average:" + avg);
 
-            var avg2 = books.Average(x => x.Grade);
-            Console.WriteLine("Average:" + avg2);
+            //var avg2 = books.Average(x => x.Grade);
+            //Console.WriteLine("Average:" + avg2);
 
-            string test = "Minh:";
-            //Console.WriteLine(test.Hello());
-            Console.WriteLine(test.ReplaceColon(@"Van"));
+            //string test = "Minh:";
+            ////Console.WriteLine(test.Hello());
+            //Console.WriteLine(test.ReplaceColon(@"Van"));
 
             //HOMEWORK =>MIN
 
@@ -116,6 +116,10 @@ namespace Practice.App
             //Create a list 10 books.
             //Find Min, Max, Avg of grade of the books.
             //Find the book(s) that has the max grade.
+
+
+            Random r = new Random();
+            Console.WriteLine(r.Next(5, 10));
 
             Console.ReadLine();
         }

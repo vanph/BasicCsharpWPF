@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{
 		Lession0.txt = Lession0.txt
 		Lesson1-Homework.txt = Lesson1-Homework.txt
 		Lesson1.txt = Lesson1.txt
+		Lesson2.txt = Lesson2.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{75EE06E1-5C04-4D12-B926-125767FFB202}"
