@@ -12,11 +12,11 @@ namespace Practice.App
             //LINQ TO OBJECTS => LINQ to Entities (EF: Entity Framework)
             //Create a list 10 books.
 
-            var cSharpBook = new Book("C#", 5);
+            var cSharpBook = new Book("C#", 3);
             var javaBook = new Book("Java", 10);
             var phpBook = new Book("PHP", 6);
             var htmlBook = new Book("HTML", 8);
-            var cssBook = new Book("CSS", 10);
+            var cssBook = new Book("CSS", 3);
             var rubyBook = new Book("Ruby", 9);
             var cBook = new Book("C", 10);
             var cplusBook = new Book("C++", 7);
@@ -72,7 +72,23 @@ namespace Practice.App
             //Console.WriteLine(test.ReplaceColon(@"Van"));
 
             //HOMEWORK =>MIN
+            //Max of grade of the books:
+            int min = books.Min(x => x.Grade);
+            Console.WriteLine("Min grade:" + min);
+            //The books has the max grade
 
+            Console.WriteLine("Listing Min Books1:");
+            var minBooks = books.Where(x => x.Grade == min).ToList();
+            PrintBooks(minBooks);
+
+
+            Console.WriteLine("Listing Min Book Names:");
+
+            var minBookNames = books.Where(x => x.Grade == min).Select(x => x.Name).ToList();
+            foreach (var name in minBookNames)
+            {
+                Console.WriteLine(name);
+            }
             //var maxBook = new Book("", 0);//var maxBook = new Book;???
             //var minBook = new Book("", 0);
             //var sumGrade = 0;
