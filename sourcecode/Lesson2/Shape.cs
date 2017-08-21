@@ -6,7 +6,7 @@ namespace Lesson2
     {
         protected const double Pi = Math.PI;
         protected double X, Y;
-
+        
         protected Shape(double x, double y)
         {
             this.X = x;
@@ -18,6 +18,7 @@ namespace Lesson2
 
     class Circle : Shape
     {
+
         public Circle(double radius)
             : base(radius, 0)
         {
