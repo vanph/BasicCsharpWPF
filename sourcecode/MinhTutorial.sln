@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{BFFF951A-F652-4CB0-8FD3-E926033863EB}"
 	ProjectSection(SolutionItems) = preProject
@@ -45,6 +45,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E88F32
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCountry", "MyCountry\MyCountry.csproj", "{B915DC64-6DF6-4C08-866A-3081636D690E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Winform", "Winform", "{D2EF2BC9-FB83-4A78-AE2A-DD879450D5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCountryApp", "MyCountryApp\MyCountryApp.csproj", "{2C5A31ED-9B20-4E87-A6C7-28AC51428D51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,10 @@ Global
 		{B915DC64-6DF6-4C08-866A-3081636D690E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B915DC64-6DF6-4C08-866A-3081636D690E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B915DC64-6DF6-4C08-866A-3081636D690E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C5A31ED-9B20-4E87-A6C7-28AC51428D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5A31ED-9B20-4E87-A6C7-28AC51428D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5A31ED-9B20-4E87-A6C7-28AC51428D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5A31ED-9B20-4E87-A6C7-28AC51428D51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,5 +110,6 @@ Global
 		{0DAC8BAC-FA05-4A99-B050-1AA721ED2BB6} = {6986C286-38F5-487A-A73B-689EB092B590}
 		{6AF4731A-5E3B-46AF-8CFC-834EBF527694} = {4FE617C5-CAEB-449B-B6DA-8764D22266EF}
 		{B915DC64-6DF6-4C08-866A-3081636D690E} = {E88F3274-3B09-4B45-ACA9-1DDE54A8D910}
+		{2C5A31ED-9B20-4E87-A6C7-28AC51428D51} = {D2EF2BC9-FB83-4A78-AE2A-DD879450D5BC}
 	EndGlobalSection
 EndGlobal
