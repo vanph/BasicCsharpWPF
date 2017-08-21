@@ -3,7 +3,7 @@ using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class DistrictRepository
+    public class DistrictRepository : IDistrictRepository
     {
         public List<District> GetDistricts()
         {

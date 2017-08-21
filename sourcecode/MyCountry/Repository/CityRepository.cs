@@ -3,11 +3,23 @@ using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class CityRepository
+    public class CityRepository : ICityRepository
     {
+        private  List<City> _cities;
+
+        public CityRepository()
+        {
+            InitData();
+        }
+        
         public List<City> GetCities()
         {
-            var cities = new List<City>
+            return _cities;
+        }
+
+        private  void InitData()
+        {
+            _cities = new List<City>
            {
                 new City("01", "Thành phố Hà Nội", "Thành phố Trung ương"),
                 new City("02", "Tỉnh Hà Giang", "Tỉnh"),
@@ -73,9 +85,6 @@ namespace MyCountry.Repository
                 new City("95", "Tỉnh Bạc Liêu", "Tỉnh"),
                 new City("96", "Tỉnh Cà Mau", "Tỉnh")
            };
-
-
-            return cities;
         }
     }
 }
