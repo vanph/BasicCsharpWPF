@@ -49,10 +49,10 @@ namespace MyCountryApp
         {
             var districts = new DistrictRepository();
             var districtList1 = districts.GetDistricts();
-            var districtcode = from district in districtList1
-                               select district.CityCode;
 
-            grdDistrict.DataSource = districtcode;
+            var districtcodes = (from district in districtList1 select new { CityCode = district.CityCode }).ToList();
+
+            grdDistrict.DataSource = districtcodes;
         }
     }
 }
