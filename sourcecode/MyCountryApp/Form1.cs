@@ -40,10 +40,15 @@ namespace MyCountryApp
             }
             else
             {
-                grdDistrict.DataSource = districtList.Where(x => x.Name.Contains(search) || x.Type.Contains(search) || x.Code.Contains(search)).ToList();
+                search = search.ToLower();
+
+                //grdDistrict.DataSource = districtList.Where(x => x.Name.ToLower().Contains(search)|| x.Code.Contains(search)).ToList();
+                grdDistrict.DataSource = districtList.Where(x => x.Name.ContainsByStringComparison(search,StringComparison.OrdinalIgnoreCase)  || x.Code.Contains(search)).ToList();
             }
             //districtList.Select(x => x.CityCode).Count();
         }
+
+       
 
         private void btnGetDistrict1_Click(object sender, EventArgs e)
         {
