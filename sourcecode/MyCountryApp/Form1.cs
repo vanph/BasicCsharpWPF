@@ -50,9 +50,21 @@ namespace MyCountryApp
             var districts = new DistrictRepository();
             var districtList1 = districts.GetDistricts();
 
-            var districtcodes = (from district in districtList1 select new { CityCode = district.CityCode }).ToList();
+            //Code Minh
+            //var districtcode = from district in districtList1
+            //                   select district.CityCode;
+            //grdDistrict.DataSource = districtcode.ToArray();
+            //1. Code của của Minh them ToList hoặc ToArray vào:
+            //M:Thêm ToList hay ToArray vào đều trả về độ dài chuỗi
+            //M:Enumerable class?
 
+            //check code
+            var districtcodes = (from district in districtList1 select new { CityCode = district.CityCode }).ToList();
             grdDistrict.DataSource = districtcodes;
+            //2. tìm hiểu tại sao a lại them dòng này select new { CityCode = district.CityCode }
+            //M:Anonymous Type?
+            //M:SAo của e khai báo thì thành Enonymous còn của a thêm new vào lại thành List?
+            //M:Vì sao lại cần anonymous ở đây?
         }
     }
 }
