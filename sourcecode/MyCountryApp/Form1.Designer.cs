@@ -35,6 +35,7 @@
             this.txtSearchDistrict = new System.Windows.Forms.TextBox();
             this.txtMaxDistrict = new System.Windows.Forms.TextBox();
             this.btnGetDistrict1 = new System.Windows.Forms.Button();
+            this.btnGetDisMax = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(97, 480);
+            this.button1.Location = new System.Drawing.Point(23, 480);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 43);
             this.button1.TabIndex = 1;
@@ -99,11 +100,22 @@
             this.btnGetDistrict1.UseVisualStyleBackColor = true;
             this.btnGetDistrict1.Click += new System.EventHandler(this.btnGetDistrict1_Click);
             // 
+            // btnGetDisMax
+            // 
+            this.btnGetDisMax.Location = new System.Drawing.Point(217, 472);
+            this.btnGetDisMax.Name = "btnGetDisMax";
+            this.btnGetDisMax.Size = new System.Drawing.Size(110, 56);
+            this.btnGetDisMax.TabIndex = 7;
+            this.btnGetDisMax.Text = "Get District Max";
+            this.btnGetDisMax.UseVisualStyleBackColor = true;
+            this.btnGetDisMax.Click += new System.EventHandler(this.btnGetDisMax_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 552);
+            this.Controls.Add(this.btnGetDisMax);
             this.Controls.Add(this.btnGetDistrict1);
             this.Controls.Add(this.txtMaxDistrict);
             this.Controls.Add(this.txtSearchDistrict);
@@ -129,6 +141,7 @@
         private System.Windows.Forms.TextBox txtSearchDistrict;
         private System.Windows.Forms.TextBox txtMaxDistrict;
         private System.Windows.Forms.Button btnGetDistrict1;
+        private System.Windows.Forms.Button btnGetDisMax;
     }
 }
 
