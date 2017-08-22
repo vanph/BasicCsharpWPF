@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\MyExtension.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="DelegateExample.cs" />
     <Compile Include="DynamicExample.cs" />

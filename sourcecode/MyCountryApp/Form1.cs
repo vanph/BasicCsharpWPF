@@ -17,6 +17,7 @@ namespace MyCountryApp
         public Form1()
         {
             InitializeComponent();
+            dataGridViewCode.AutoGenerateColumns = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,8 +43,11 @@ namespace MyCountryApp
             {
                 search = search.ToLower();
 
+                //Solution 1
                 //grdDistrict.DataSource = districtList.Where(x => x.Name.ToLower().Contains(search)|| x.Code.Contains(search)).ToList();
-                grdDistrict.DataSource = districtList.Where(x => x.Name.ContainsByStringComparison(search,StringComparison.OrdinalIgnoreCase)  || x.Code.Contains(search)).ToList();
+                //Solution 2
+                //1.000
+                grdDistrict.DataSource = districtList.Where(x => x.Name.ContainsByStringComparison(search, StringComparison.OrdinalIgnoreCase) || x.Code.Contains(search)).ToList();
             }
             //districtList.Select(x => x.CityCode).Count();
         }
@@ -55,9 +59,15 @@ namespace MyCountryApp
             var districts = new DistrictRepository();
             var districtList1 = districts.GetDistricts();
 
-            var districtcodes = (from district in districtList1 select new { CityCode = district.CityCode }).ToList();
+            var districtcodes = (from district in districtList1 select new { Code = district.CityCode}).Distinct().ToList();
+            
+            dataGridViewCode.DataSource = districtcodes;
 
-            grdDistrict.DataSource = districtcodes;
+            var count = districtcodes.Count();
+
+            MessageBox.Show("Done");
         }
+
+       
     }
 }

@@ -10,8 +10,8 @@
 
             try
             {
-                int j = (short)o;  // attempt to unbox
-                //int j = (int)o;
+                //int j = (short)o;  // attempt to unbox
+                int j = (int)o;
 
                 System.Console.WriteLine("Unboxing OK.");
             }
