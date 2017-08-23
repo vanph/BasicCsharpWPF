@@ -35,7 +35,7 @@
             this.txtSearchDistrict = new System.Windows.Forms.TextBox();
             this.txtMaxDistrict = new System.Windows.Forms.TextBox();
             this.btnGetDistrict1 = new System.Windows.Forms.Button();
-            this.btnGetDisMax = new System.Windows.Forms.Button();
+            this.btnShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 480);
+            this.button1.Location = new System.Drawing.Point(93, 480);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 43);
             this.button1.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             // btnGetDistrict
             // 
-            this.btnGetDistrict.Location = new System.Drawing.Point(403, 475);
+            this.btnGetDistrict.Location = new System.Drawing.Point(481, 480);
             this.btnGetDistrict.Name = "btnGetDistrict";
             this.btnGetDistrict.Size = new System.Drawing.Size(151, 53);
             this.btnGetDistrict.TabIndex = 3;
@@ -92,7 +92,7 @@
             // 
             // btnGetDistrict1
             // 
-            this.btnGetDistrict1.Location = new System.Drawing.Point(584, 475);
+            this.btnGetDistrict1.Location = new System.Drawing.Point(481, 558);
             this.btnGetDistrict1.Name = "btnGetDistrict1";
             this.btnGetDistrict1.Size = new System.Drawing.Size(151, 53);
             this.btnGetDistrict1.TabIndex = 6;
@@ -100,22 +100,22 @@
             this.btnGetDistrict1.UseVisualStyleBackColor = true;
             this.btnGetDistrict1.Click += new System.EventHandler(this.btnGetDistrict1_Click);
             // 
-            // btnGetDisMax
+            // btnShow
             // 
-            this.btnGetDisMax.Location = new System.Drawing.Point(217, 472);
-            this.btnGetDisMax.Name = "btnGetDisMax";
-            this.btnGetDisMax.Size = new System.Drawing.Size(110, 56);
-            this.btnGetDisMax.TabIndex = 7;
-            this.btnGetDisMax.Text = "Get District Max";
-            this.btnGetDisMax.UseVisualStyleBackColor = true;
-            this.btnGetDisMax.Click += new System.EventHandler(this.btnGetDisMax_Click);
+            this.btnShow.Location = new System.Drawing.Point(93, 558);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(172, 53);
+            this.btnShow.TabIndex = 7;
+            this.btnShow.Text = "ShowDisAndCityOrdByCityName";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 552);
-            this.Controls.Add(this.btnGetDisMax);
+            this.ClientSize = new System.Drawing.Size(775, 642);
+            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnGetDistrict1);
             this.Controls.Add(this.txtMaxDistrict);
             this.Controls.Add(this.txtSearchDistrict);
@@ -141,7 +141,7 @@
         private System.Windows.Forms.TextBox txtSearchDistrict;
         private System.Windows.Forms.TextBox txtMaxDistrict;
         private System.Windows.Forms.Button btnGetDistrict1;
-        private System.Windows.Forms.Button btnGetDisMax;
+        private System.Windows.Forms.Button btnShow;
     }
 }
 

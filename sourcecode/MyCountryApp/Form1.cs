@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyCountry.Repository;
+using MyCountryApp;
 
 namespace MyCountryApp
 {
@@ -52,6 +53,8 @@ namespace MyCountryApp
 
         private void btnGetDistrict1_Click(object sender, EventArgs e)
         {
+            var cityRepo = new CityRepository();
+            var cityList = cityRepo.GetCities();
             var districts = new DistrictRepository();
             var districtList1 = districts.GetDistricts();
 
@@ -73,13 +76,26 @@ namespace MyCountryApp
             var x = districtList1.GroupBy(p => p.CityCode).Select(g => new { mode = g.Key, CityCodeCount = g.Count() }).ToList();
             var y = x.Max(l => l.CityCodeCount);
             var z = x.Where(h => h.CityCodeCount == y).Select(m => new { dstmax = m.mode }).ToList();
-            grdDistrict.DataSource = z;
-            txtSearchDistrict.Text = z.First().ToString();//M:Tại sao kế quả ra: { dstmax = 01 }, chỉ muốn là 01???
+            var result = cityList.Join(z, p => p.Code, c=> c.dstmax, (p,c)=> new { getdismax = p.Code, getdismaxname=p.Name} ).ToList();
+            //grdDistrict.DataSource = result;
+            //MessageBox.Show($"{result.FirstOrDefault().ToString()}");
+            MessageBox.Show($"Tỉnh có nhiều quận huyện nhât: {result[0].getdismaxname}");
         }
 
-        private void btnGetDisMax_Click(object sender, EventArgs e)
+        private void btnShow_Click(object sender, EventArgs e)
         {
-            //M:Ở đây e không biết làm sao truyền dữ liệu nhận được là Code của tỉnh có số Districts nhiều nhất sang đây để tiếp tục tính toán???
+            var cityRepo = new CityRepository();
+            var cityList = cityRepo.GetCities();
+            var districts = new DistrictRepository();
+            var districtList1 = districts.GetDistricts();
+
+            var result = cityList.Join(districtList1, p => p.Code, c => c.CityCode, (p, c) => new {
+                getdisCode = c.Code, getdisName = c.Name, getcityName = p.Name
+            }).OrderBy(x=>x.getcityName.ExtTrimStart("Tỉnh ").ExtTrimStart("Thành phố ")).ToList();           
+            dataGridView1.DataSource = result;
+
         }
+        
+        
     }
 }
