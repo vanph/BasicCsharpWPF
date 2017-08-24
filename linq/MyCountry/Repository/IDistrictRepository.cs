@@ -5,6 +5,8 @@ namespace MyCountry.Repository
 {
     public interface IDistrictRepository
     {
-        List<District> GetDistricts();
+        IEnumerable<District> GetAll();
+
+        District GetByCode(string code);
     }
 }

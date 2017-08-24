@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MyCountry.Model;
 
 namespace MyCountry.Repository
@@ -12,9 +13,14 @@ namespace MyCountry.Repository
             InitData();
         }
         
-        public IList<City> GetCities()
+        public IEnumerable<City> GetAll()
         {
             return _cities;
+        }
+
+        public City GetByCode(string code)
+        {
+            return _cities.FirstOrDefault(x => x.Code == code);
         }
 
         private  void InitData()

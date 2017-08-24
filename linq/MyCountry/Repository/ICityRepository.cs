@@ -5,6 +5,8 @@ namespace MyCountry.Repository
 {
     public interface ICityRepository
     {
-        IList<City> GetCities();
+        IEnumerable<City> GetAll();
+
+        City GetByCode(string code);
     }
 }

@@ -7,23 +7,26 @@ namespace MyCountryApp
 {
     public partial class Form1 : Form
     {
+        private readonly ICityRepository _cityRepository;
+        private readonly IDistrictRepository _districtRepository;
         public Form1()
         {
             InitializeComponent();
+
+            _cityRepository = new CityRepository();
+            _districtRepository = new DistrictRepository();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var cityRepo = new CityRepository();
-            var cityList = cityRepo.GetCities();
+            var cityList = _cityRepository.GetAll();
             dataGridView1.DataSource = cityList;
             
         }
 
         private void btnGetDistrict_Click(object sender, EventArgs e)
         {
-            var districtRepo = new DistrictRepository();
-            var districtList = districtRepo.GetDistricts();
+            var districtList = _districtRepository.GetAll();
             var search = txtSearchDistrict.Text;
             if (string.IsNullOrEmpty(search))
             {
@@ -43,13 +46,8 @@ namespace MyCountryApp
 
         private void btnGetDistrict1_Click(object sender, EventArgs e)
         {
-            var cityRepo = new CityRepository();
-            var cityList = cityRepo.GetCities();
-            cityList.RemoveAt(0);
-            var l2 = cityRepo.GetCities();
-
-            var districtRepository = new DistrictRepository();
-            var districts = districtRepository.GetDistricts();
+            var cityList = _cityRepository.GetAll();
+            var districts = _districtRepository.GetAll();
 
             //Code Minh
             //var districtcode = from district in districtList1
@@ -78,10 +76,8 @@ namespace MyCountryApp
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            var cityRepo = new CityRepository();
-            var cityList = cityRepo.GetCities();
-            var districts = new DistrictRepository();
-            var districtList1 = districts.GetDistricts();
+            var cityList = _cityRepository.GetAll();
+            var districtList1 = _districtRepository.GetAll();
 
             var result = cityList.Join(districtList1, p => p.Code, c => c.CityCode, (p, c) => new
             {
@@ -90,7 +86,6 @@ namespace MyCountryApp
                 getcityName = p.Name
             }).OrderBy(x => x.getcityName.ExtTrimStart("Tỉnh ").ExtTrimStart("Thành phố ")).ToList();
             dataGridView1.DataSource = result;
-
         }
 
 
