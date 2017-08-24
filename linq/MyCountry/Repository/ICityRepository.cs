@@ -3,10 +3,8 @@ using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public interface ICityRepository
+    public interface ICityRepository : IGenericRepository<City>
     {
-        IEnumerable<City> GetAll();
-
-        City GetByCode(string code);
+        City GetCityByCode(string code);
     }
 }

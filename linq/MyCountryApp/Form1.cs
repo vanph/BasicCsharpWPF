@@ -20,8 +20,7 @@ namespace MyCountryApp
         private void button1_Click(object sender, EventArgs e)
         {
             var cityList = _cityRepository.GetAll();
-            dataGridView1.DataSource = cityList;
-            
+            dataGridView1.DataSource = cityList;            
         }
 
         private void btnGetDistrict_Click(object sender, EventArgs e)

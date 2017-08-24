@@ -4,28 +4,16 @@ using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class CityRepository : ICityRepository
+    public class CityRepository : GenericRepository<City>, ICityRepository
     {
-        private  List<City> _cities;
-
-        public CityRepository()
+        public City GetCityByCode(string code)
         {
-            InitData();
-        }
-        
-        public IEnumerable<City> GetAll()
-        {
-            return _cities;
+            return Data.FirstOrDefault(x => x.Code == code);
         }
 
-        public City GetByCode(string code)
+        protected override void InitData()
         {
-            return _cities.FirstOrDefault(x => x.Code == code);
-        }
-
-        private  void InitData()
-        {
-            _cities = new List<City>
+            Data = new List<City>
            {
                 new City("01", "Thành phố Hà Nội", "Thành phố Trung ương"),
                 new City("02", "Tỉnh Hà Giang", "Tỉnh"),

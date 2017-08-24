@@ -4,27 +4,16 @@ using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class DistrictRepository : IDistrictRepository
+    public class DistrictRepository : GenericRepository<District>, IDistrictRepository
     {
-        private List<District> _districts;
-
-        public DistrictRepository()
+        public District GetDistrictByCode(string code)
         {
-            InitData();
-        }
-        public IEnumerable<District> GetAll()
-        {
-            return _districts;
+            return Data.FirstOrDefault(x => x.Code == code);
         }
 
-        public District GetByCode(string code)
+        protected override void InitData()
         {
-            return _districts.FirstOrDefault(x => x.Code == code);
-        }
-
-        private void InitData()
-        {
-            _districts = new List<District>
+            Data = new List<District>
             {
                 new District("001", "Quận Ba Đình", "Quận", "01"),
                 new District("002", "Quận Hoàn Kiếm", "Quận", "01"),
