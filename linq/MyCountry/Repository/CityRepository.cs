@@ -12,7 +12,7 @@ namespace MyCountry.Repository
             InitData();
         }
         
-        public List<City> GetCities()
+        public IList<City> GetCities()
         {
             return _cities;
         }

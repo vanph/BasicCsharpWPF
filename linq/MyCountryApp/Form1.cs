@@ -1,15 +1,7 @@
 ﻿using System;
-using MyCountry;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyCountry.Repository;
-using MyCountryApp;
 
 namespace MyCountryApp
 {
@@ -25,8 +17,6 @@ namespace MyCountryApp
             var cityRepo = new CityRepository();
             var cityList = cityRepo.GetCities();
             dataGridView1.DataSource = cityList;
-            //var show = txtMaxDistrict.Text;
-            //show.ToList();
             
         }
 
@@ -44,19 +34,22 @@ namespace MyCountryApp
                 search = search.ToLower();
 
                 //grdDistrict.DataSource = districtList.Where(x => x.Name.ToLower().Contains(search)|| x.Code.Contains(search)).ToList();
-                grdDistrict.DataSource = districtList.Where(x => x.Name.ContainsByStringComparison(search,StringComparison.OrdinalIgnoreCase)  || x.Code.Contains(search)).ToList();
+                grdDistrict.DataSource = districtList.Where(x => x.Name.ContainsByStringComparison(search, StringComparison.OrdinalIgnoreCase) || x.Code.Contains(search)).ToList();
             }
             //districtList.Select(x => x.CityCode).Count();
         }
 
-       
+
 
         private void btnGetDistrict1_Click(object sender, EventArgs e)
         {
             var cityRepo = new CityRepository();
             var cityList = cityRepo.GetCities();
-            var districts = new DistrictRepository();
-            var districtList1 = districts.GetDistricts();
+            cityList.RemoveAt(0);
+            var l2 = cityRepo.GetCities();
+
+            var districtRepository = new DistrictRepository();
+            var districts = districtRepository.GetDistricts();
 
             //Code Minh
             //var districtcode = from district in districtList1
@@ -73,13 +66,14 @@ namespace MyCountryApp
             //M:Anonymous Type?
             //M:SAo của e khai báo thì thành Enonymous còn của a thêm new vào lại thành List?
             //M:Vì sao lại cần anonymous ở đây? =>đẻ có thể xuất ra các trường đã chọn
-            var x = districtList1.GroupBy(p => p.CityCode).Select(g => new { mode = g.Key, CityCodeCount = g.Count() }).ToList();
-            var y = x.Max(l => l.CityCodeCount);
-            var z = x.Where(h => h.CityCodeCount == y).Select(m => new { dstmax = m.mode }).ToList();
-            var result = cityList.Join(z, p => p.Code, c=> c.dstmax, (p,c)=> new { getdismax = p.Code, getdismaxname=p.Name} ).ToList();
-            //grdDistrict.DataSource = result;
-            //MessageBox.Show($"{result.FirstOrDefault().ToString()}");
-            MessageBox.Show($"Tỉnh có nhiều quận huyện nhât: {result[0].getdismaxname}");
+
+            var grpDistricts = districts.GroupBy(p => p.CityCode).Select(g => new { Code = g.Key, CityCodeCount = g.Count() }).ToList();
+            var maxCityCount = grpDistricts.Max(l => l.CityCodeCount);
+
+            var cityCodes = grpDistricts.Where(h => h.CityCodeCount == maxCityCount).Select(x => x.Code);
+            var cityName = cityList.Where(x => cityCodes.Contains(x.Code)).Select(x => x.Name).JoinStrings(" , ");
+
+            MessageBox.Show($@"Tỉnh có nhiều quận huyện nhât: {cityName}");
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -89,13 +83,16 @@ namespace MyCountryApp
             var districts = new DistrictRepository();
             var districtList1 = districts.GetDistricts();
 
-            var result = cityList.Join(districtList1, p => p.Code, c => c.CityCode, (p, c) => new {
-                getdisCode = c.Code, getdisName = c.Name, getcityName = p.Name
-            }).OrderBy(x=>x.getcityName.ExtTrimStart("Tỉnh ").ExtTrimStart("Thành phố ")).ToList();           
+            var result = cityList.Join(districtList1, p => p.Code, c => c.CityCode, (p, c) => new
+            {
+                getdisCode = c.Code,
+                getdisName = c.Name,
+                getcityName = p.Name
+            }).OrderBy(x => x.getcityName.ExtTrimStart("Tỉnh ").ExtTrimStart("Thành phố ")).ToList();
             dataGridView1.DataSource = result;
 
         }
-        
-        
+
+
     }
 }
