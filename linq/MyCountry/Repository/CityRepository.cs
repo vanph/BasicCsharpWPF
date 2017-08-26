@@ -13,7 +13,7 @@ namespace MyCountry.Repository
 
         protected override void InitData()
         {
-            Data = new List<City>
+            Data = new List<City>// Data là 1 field nhưng nó không có property get set sao vẫn có thể gán giá trị vào cho nó ở đây được?
            {
                 new City("01", "Thành phố Hà Nội", "Thành phố Trung ương"),
                 new City("02", "Tỉnh Hà Giang", "Tỉnh"),
