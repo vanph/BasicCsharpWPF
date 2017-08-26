@@ -88,6 +88,21 @@ namespace MyCountryApp
             dataGridView1.DataSource = result;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var cityNameList = _cityRepository.GetAll();
 
+            comboBox1.DataSource = cityNameList.Select(x => x.Name).ToList();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var cityNameList = _cityRepository.GetAll();
+            var distNameList = _districtRepository.GetAll();
+
+            string selected = comboBox1.SelectedValue.ToString();
+            var codeCity = cityNameList.Where(x => x.Name == selected).Select(x => x.Code).FirstOrDefault();
+            comboBox2.DataSource = distNameList.Where(x => x.CityCode == codeCity).Select(x => x.Name).ToList();
+        }
     }
 }
