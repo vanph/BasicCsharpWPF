@@ -42,6 +42,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnExportCsv = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnExportCsvDistrict = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
@@ -135,7 +137,7 @@
             // 
             // btnShowDialog
             // 
-            this.btnShowDialog.Location = new System.Drawing.Point(808, 492);
+            this.btnShowDialog.Location = new System.Drawing.Point(1131, 174);
             this.btnShowDialog.Name = "btnShowDialog";
             this.btnShowDialog.Size = new System.Drawing.Size(149, 64);
             this.btnShowDialog.TabIndex = 9;
@@ -146,7 +148,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(865, 240);
+            this.button2.Location = new System.Drawing.Point(876, 198);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 40);
             this.button2.TabIndex = 10;
@@ -156,7 +158,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(331, 480);
+            this.btnExport.Location = new System.Drawing.Point(888, 273);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(114, 80);
             this.btnExport.TabIndex = 11;
@@ -166,7 +168,7 @@
             // 
             // btnExportCsv
             // 
-            this.btnExportCsv.Location = new System.Drawing.Point(284, 567);
+            this.btnExportCsv.Location = new System.Drawing.Point(1121, 291);
             this.btnExportCsv.Name = "btnExportCsv";
             this.btnExportCsv.Size = new System.Drawing.Size(143, 44);
             this.btnExportCsv.TabIndex = 12;
@@ -174,11 +176,22 @@
             this.btnExportCsv.UseVisualStyleBackColor = true;
             this.btnExportCsv.Click += new System.EventHandler(this.btnExportCsv_Click);
             // 
+            // btnExportCsvDistrict
+            // 
+            this.btnExportCsvDistrict.Location = new System.Drawing.Point(1117, 379);
+            this.btnExportCsvDistrict.Name = "btnExportCsvDistrict";
+            this.btnExportCsvDistrict.Size = new System.Drawing.Size(163, 63);
+            this.btnExportCsvDistrict.TabIndex = 13;
+            this.btnExportCsvDistrict.Text = "Export CSV District";
+            this.btnExportCsvDistrict.UseVisualStyleBackColor = true;
+            this.btnExportCsvDistrict.Click += new System.EventHandler(this.btnExportCsvDistrict_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 642);
+            this.Controls.Add(this.btnExportCsvDistrict);
             this.Controls.Add(this.btnExportCsv);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.button2);
@@ -218,6 +231,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnExportCsv;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnExportCsvDistrict;
     }
 }
 

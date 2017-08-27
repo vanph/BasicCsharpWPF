@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MyCountry.Model;
 using MyCountry.Repository;
 
 namespace MyCountryApp
@@ -202,6 +201,39 @@ namespace MyCountryApp
             File.WriteAllText(path, str.ToString(), Encoding.UTF8);
 
             MessageBox.Show(@"Success");
+        }
+
+        private void btnExportCsvDistrict_Click(object sender, EventArgs e)
+        {
+            //Export districts to csv file.
+            var districts = _districtRepository.GetAll();
+
+            var str = new StringBuilder();
+
+            foreach (var district in districts)
+            {
+                var properties = district.GetType().GetProperties();
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    var propInfo = properties[i];
+
+                    if (i == properties.Length - 1)
+                    {
+                        str.AppendLine(propInfo.GetValue(district).ToString());
+                    }
+                    else
+                    {
+                        str.Append($"{propInfo.GetValue(district)},");
+                    }
+                }
+            }
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|csv files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            //Save file with a saveFileDialog
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(saveFileDialog1.FileName, str.ToString(), Encoding.UTF8);
+            }
         }
     }
 }
