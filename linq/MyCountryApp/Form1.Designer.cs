@@ -38,6 +38,10 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnShowDialog = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnExportCsv = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
@@ -129,11 +133,56 @@
             this.comboBox2.Size = new System.Drawing.Size(187, 21);
             this.comboBox2.TabIndex = 8;
             // 
+            // btnShowDialog
+            // 
+            this.btnShowDialog.Location = new System.Drawing.Point(808, 492);
+            this.btnShowDialog.Name = "btnShowDialog";
+            this.btnShowDialog.Size = new System.Drawing.Size(149, 64);
+            this.btnShowDialog.TabIndex = 9;
+            this.btnShowDialog.Text = "Show Dialog";
+            this.btnShowDialog.UseVisualStyleBackColor = true;
+            this.btnShowDialog.Click += new System.EventHandler(this.btnShowDialog_Click);
+            this.btnShowDialog.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnShowDialog_MouseClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(865, 240);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 40);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(331, 480);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(114, 80);
+            this.btnExport.TabIndex = 11;
+            this.btnExport.Text = "Export Text";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnExportCsv
+            // 
+            this.btnExportCsv.Location = new System.Drawing.Point(284, 567);
+            this.btnExportCsv.Name = "btnExportCsv";
+            this.btnExportCsv.Size = new System.Drawing.Size(143, 44);
+            this.btnExportCsv.TabIndex = 12;
+            this.btnExportCsv.Text = "Export  Csv";
+            this.btnExportCsv.UseVisualStyleBackColor = true;
+            this.btnExportCsv.Click += new System.EventHandler(this.btnExportCsv_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 642);
+            this.Controls.Add(this.btnExportCsv);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnShowDialog);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnShow);
@@ -146,7 +195,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).EndInit();
             this.ResumeLayout(false);
@@ -166,6 +214,10 @@
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnShowDialog;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnExportCsv;
     }
 }
 

@@ -4,7 +4,7 @@ namespace MyCountry.Repository
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected List<T> Data;
+        protected List<T> Data { get; set; }
         
         protected GenericRepository()
         {

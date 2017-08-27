@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using MyCountry.Model;
 using MyCountry.Repository;
@@ -16,11 +18,14 @@ namespace MyCountryApp
 
             _cityRepository = new CityRepository();
             _districtRepository = new DistrictRepository();
+            this.Load += MainFormLoaded;
+            dataGridView1.AutoGenerateColumns = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var cityList = _cityRepository.GetAll();
+         
             dataGridView1.DataSource = cityList;
         }
 
@@ -88,7 +93,7 @@ namespace MyCountryApp
             dataGridView1.DataSource = result;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainFormLoaded(object sender, EventArgs e)
         {
             var cityNameList = _cityRepository.GetAll();
 
@@ -103,6 +108,100 @@ namespace MyCountryApp
             string selected = comboBox1.SelectedValue.ToString();
             var codeCity = cityNameList.Where(x => x.Name == selected).Select(x => x.Code).FirstOrDefault();
             comboBox2.DataSource = distNameList.Where(x => x.CityCode == codeCity).Select(x => x.Name).ToList();
+        }
+
+        private void btnShowDialog_Click(object sender, EventArgs e)
+        {
+            var frm = new Form2()
+            {
+                Width = 400,
+                Height = 300
+            };
+
+
+            frm.ShowDialog();
+        }
+
+        private void btnShowDialog_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //var btn = sender as Button;
+            //if (btn != null)
+            //{
+            //    btn.Text = @"I clicked";
+            //}
+
+            if (sender is Button)
+            {
+                var btn = (Button) sender;
+                btn.Text = @"I clicked";
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            //export cities to text file.
+            var cities = _cityRepository.GetAll();
+
+            StringBuilder str = new StringBuilder();
+            foreach (var city in cities)
+            {
+                //typeof(City)
+                var properties = city.GetType().GetProperties();
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    var propInfo = properties[i];
+
+                    if (i == properties.Length - 1)
+                    {
+                        str.AppendLine($"{propInfo.Name}:{propInfo.GetValue(city)}");
+                    }
+                    else
+                    {
+                        str.Append($"{propInfo.Name}:{propInfo.GetValue(city)},");
+                    }
+                }
+            }
+            //Save file
+            var path = $"{Directory.GetCurrentDirectory()}\\city.txt";
+            File.WriteAllText(path,str.ToString(), Encoding.UTF8);
+
+            MessageBox.Show(@"Success");
+        }
+
+        private void btnExportCsv_Click(object sender, EventArgs e)
+        {
+            //export cities to csv file.
+            var cities = _cityRepository.GetAll();
+
+            var str = new StringBuilder();
+
+            foreach (var city in cities)
+            {
+                var properties = city.GetType().GetProperties();
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    var propInfo = properties[i];
+
+                    if (i == properties.Length - 1)
+                    {
+                        str.AppendLine(propInfo.GetValue(city).ToString());
+                    }
+                    else
+                    {
+                        str.Append($"{propInfo.GetValue(city)},");
+                    }
+                }
+            }
+            //Save file
+            var path = $"{Directory.GetCurrentDirectory()}\\city.csv";
+            File.WriteAllText(path, str.ToString(), Encoding.UTF8);
+
+            MessageBox.Show(@"Success");
         }
     }
 }
