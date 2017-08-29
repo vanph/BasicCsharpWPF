@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MyCountry.Repository
 {
@@ -14,6 +16,15 @@ namespace MyCountry.Repository
         public IEnumerable<T> GetAll()
         {
             return Data;
+        }
+
+        public IEnumerable<T> Get(Func<T, bool> predicate, int pageSize, int pageNumber)
+        {
+            if (predicate == null)
+            {
+                return Data.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            }
+            return Data.Where(predicate).Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
 
         protected abstract void InitData();

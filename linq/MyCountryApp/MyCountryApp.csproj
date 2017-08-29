@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Dumper.cs" />
     <Compile Include="ExtensionTrimStart.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

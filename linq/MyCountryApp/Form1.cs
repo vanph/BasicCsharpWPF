@@ -236,5 +236,24 @@ namespace MyCountryApp
                 File.WriteAllText(saveFileDialog1.FileName, str.ToString(), Encoding.UTF8);
             }
         }
+
+        private void btnGetPagedDistrict_Click(object sender, EventArgs e)
+        {
+            var pageNumber = 2;
+            var search = txtSearchDistrict.Text;
+            if (string.IsNullOrEmpty(search))
+            {
+                grdDistrict.DataSource = _districtRepository.Get(null, Constants.PageSize, pageNumber).ToList(); 
+            }
+            else
+            {
+                search = search.ToLower();
+                var districts = _districtRepository.Get((x => x.Name.ToLower().Contains(search) || x.Code.Contains(search)), 
+                                                            Constants.PageSize,
+                                                            pageNumber).ToList();
+                grdDistrict.DataSource = districts;
+            }
+           
+        }
     }
 }
