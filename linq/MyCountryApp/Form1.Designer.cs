@@ -36,6 +36,14 @@
             this.txtMaxDistrict = new System.Windows.Forms.TextBox();
             this.btnGetDistrict1 = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnShowDialog = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnExportCsv = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnExportCsvDistrict = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
@@ -110,11 +118,86 @@
             this.btnShow.UseVisualStyleBackColor = true;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(865, 100);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(189, 21);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1121, 100);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(187, 21);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // btnShowDialog
+            // 
+            this.btnShowDialog.Location = new System.Drawing.Point(1131, 174);
+            this.btnShowDialog.Name = "btnShowDialog";
+            this.btnShowDialog.Size = new System.Drawing.Size(149, 64);
+            this.btnShowDialog.TabIndex = 9;
+            this.btnShowDialog.Text = "Show Dialog";
+            this.btnShowDialog.UseVisualStyleBackColor = true;
+            this.btnShowDialog.Click += new System.EventHandler(this.btnShowDialog_Click);
+            this.btnShowDialog.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnShowDialog_MouseClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(876, 198);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 40);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(888, 273);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(114, 80);
+            this.btnExport.TabIndex = 11;
+            this.btnExport.Text = "Export Text";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnExportCsv
+            // 
+            this.btnExportCsv.Location = new System.Drawing.Point(1121, 291);
+            this.btnExportCsv.Name = "btnExportCsv";
+            this.btnExportCsv.Size = new System.Drawing.Size(143, 44);
+            this.btnExportCsv.TabIndex = 12;
+            this.btnExportCsv.Text = "Export  Csv";
+            this.btnExportCsv.UseVisualStyleBackColor = true;
+            this.btnExportCsv.Click += new System.EventHandler(this.btnExportCsv_Click);
+            // 
+            // btnExportCsvDistrict
+            // 
+            this.btnExportCsvDistrict.Location = new System.Drawing.Point(1117, 379);
+            this.btnExportCsvDistrict.Name = "btnExportCsvDistrict";
+            this.btnExportCsvDistrict.Size = new System.Drawing.Size(163, 63);
+            this.btnExportCsvDistrict.TabIndex = 13;
+            this.btnExportCsvDistrict.Text = "Export CSV District";
+            this.btnExportCsvDistrict.UseVisualStyleBackColor = true;
+            this.btnExportCsvDistrict.Click += new System.EventHandler(this.btnExportCsvDistrict_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 642);
+            this.ClientSize = new System.Drawing.Size(1362, 642);
+            this.Controls.Add(this.btnExportCsvDistrict);
+            this.Controls.Add(this.btnExportCsv);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnShowDialog);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnGetDistrict1);
             this.Controls.Add(this.txtMaxDistrict);
@@ -142,6 +225,14 @@
         private System.Windows.Forms.TextBox txtMaxDistrict;
         private System.Windows.Forms.Button btnGetDistrict1;
         private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnShowDialog;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnExportCsv;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnExportCsvDistrict;
     }
 }
 

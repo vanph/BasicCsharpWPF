@@ -1,25 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MyCountry.Model;
 
 namespace MyCountry.Repository
 {
-    public class CityRepository : ICityRepository
+    public class CityRepository : GenericRepository<City>, ICityRepository
     {
-        private  List<City> _cities;
-
-        public CityRepository()
+        public City GetCityByCode(string code)
         {
-            InitData();
-        }
-        
-        public List<City> GetCities()
-        {
-            return _cities;
+            return Data.FirstOrDefault(x => x.Code == code);
         }
 
-        private  void InitData()
+        protected override void InitData()
         {
-            _cities = new List<City>
+            Data = new List<City>// Data là 1 field nhưng nó không có property get set sao vẫn có thể gán giá trị vào cho nó ở đây được?
            {
                 new City("01", "Thành phố Hà Nội", "Thành phố Trung ương"),
                 new City("02", "Tỉnh Hà Giang", "Tỉnh"),
