@@ -21,9 +21,17 @@ namespace StoreApplication
         private void button1_Click(object sender, EventArgs e)
         {
             var dbContext = new NorthwindEntities();
-            var query = dbContext.Customers.Where(x => x.CustomerID.Contains("A")).OrderBy(x => x.CustomerID);
-            var customers = query.ToList();
-            dataGridView1.DataSource = customers;
+            var search = txtSearch.Text;
+            var query = dbContext.Customers.OrderBy(x => x.CustomerID);
+            if (string.IsNullOrEmpty(search))
+            {
+                dataGridView1.DataSource = query.ToList();
+            }
+            else
+            {
+                search = search.ToLower();
+                dataGridView1.DataSource = query.Where(x => x.CustomerID.ToLower().Contains(search)).ToList();
+            }           
         }
     }
 }
