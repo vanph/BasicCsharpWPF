@@ -206,34 +206,54 @@ namespace MyCountryApp
         private void btnExportCsvDistrict_Click(object sender, EventArgs e)
         {
             //Export districts to csv file.
-            var districts = _districtRepository.GetAll();
-
-            var str = new StringBuilder();
-
-            foreach (var district in districts)
-            {
-                var properties = district.GetType().GetProperties();
-                for (var i = 0; i < properties.Length; i++)
-                {
-                    var propInfo = properties[i];
-
-                    if (i == properties.Length - 1)
-                    {
-                        str.AppendLine(propInfo.GetValue(district).ToString());
-                    }
-                    else
-                    {
-                        str.Append($"{propInfo.GetValue(district)},");
-                    }
-                }
-            }
+            
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|csv files (*.csv)|*.csv|All files (*.*)|*.*";
 
             //Save file with a saveFileDialog
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                var districts = _districtRepository.GetAll();
+
+                var str = new StringBuilder();
+
+                foreach (var district in districts)
+                {
+                    var properties = district.GetType().GetProperties();
+                    for (var i = 0; i < properties.Length; i++)
+                    {
+                        var propInfo = properties[i];
+
+                        if (i == properties.Length - 1)
+                        {
+                            str.AppendLine(propInfo.GetValue(district).ToString());
+                        }
+                        else
+                        {
+                            str.Append($"{propInfo.GetValue(district)},");
+                        }
+                    }
+                }
                 File.WriteAllText(saveFileDialog1.FileName, str.ToString(), Encoding.UTF8);
             }
+        }
+
+        private void btnGetPagedDistrict_Click(object sender, EventArgs e)
+        {
+            var pageNumber = 2;
+            var search = txtSearchDistrict.Text;
+            if (string.IsNullOrEmpty(search))
+            {
+                grdDistrict.DataSource = _districtRepository.Get(null, Constants.PageSize, pageNumber).ToList(); 
+            }
+            else
+            {
+                search = search.ToLower();
+                var districts = _districtRepository.Get((x => x.Name.ToLower().Contains(search) || x.Code.Contains(search)), 
+                                                            Constants.PageSize,
+                                                            pageNumber).ToList();
+                grdDistrict.DataSource = districts;
+            }
+           
         }
     }
 }

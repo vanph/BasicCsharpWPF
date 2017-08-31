@@ -44,6 +44,7 @@
             this.btnExportCsv = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnExportCsvDistrict = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDistrict)).BeginInit();
             this.SuspendLayout();
@@ -186,6 +187,16 @@
             this.btnExportCsvDistrict.UseVisualStyleBackColor = true;
             this.btnExportCsvDistrict.Click += new System.EventHandler(this.btnExportCsvDistrict_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(717, 506);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(151, 53);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Get Paged Districts ";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnGetPagedDistrict_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +212,7 @@
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnGetDistrict1);
             this.Controls.Add(this.txtMaxDistrict);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.txtSearchDistrict);
             this.Controls.Add(this.btnGetDistrict);
             this.Controls.Add(this.grdDistrict);
@@ -233,6 +245,7 @@
         private System.Windows.Forms.Button btnExportCsv;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button btnExportCsvDistrict;
+        private System.Windows.Forms.Button button3;
     }
 }
 
