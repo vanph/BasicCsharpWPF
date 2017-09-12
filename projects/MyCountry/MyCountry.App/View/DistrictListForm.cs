@@ -26,7 +26,9 @@ namespace MyCountry.App
         private void DistrictListForm_Load(object sender, EventArgs e)
         {
             //var districtList = _myDistrict.Districts;
-            //dgvDistrictList.DataSource = districtList;
+            var districtList = new MyCountryEntities();
+            var query = districtList.Districts.Select(x => x);
+            dgvDistrictList.DataSource = query.ToList();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

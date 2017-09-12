@@ -1,4 +1,4 @@
-namespace MyCountry.DataAccess.Model
+﻿namespace MyCountry.DataAccess.Model
 {
     using System;
     using System.Collections.Generic;
@@ -24,6 +24,6 @@ namespace MyCountry.DataAccess.Model
         [StringLength(50)]
         public string CityCode { get; set; }
 
-        public virtual City City { get; set; }
+        public virtual City City { get; set; }// Property này ở đâu ra???
     }
 }
