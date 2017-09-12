@@ -24,6 +24,6 @@
         [StringLength(50)]
         public string CityCode { get; set; }
 
-        public virtual City City { get; set; }// Property này ở đâu ra???
+        public virtual City City { get; set; }
     }
 }

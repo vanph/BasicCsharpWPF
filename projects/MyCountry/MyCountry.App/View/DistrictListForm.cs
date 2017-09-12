@@ -25,7 +25,7 @@ namespace MyCountry.App
             lblCityName.Text = "";
 
             dgvDistrictList.AutoGenerateColumns = false;
-            
+
         }
 
         private void DistrictListForm_Load(object sender, EventArgs e)
@@ -38,7 +38,12 @@ namespace MyCountry.App
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {            
+        {
+            //string selectedCity = cmbCity.SelectedValue.ToString();//
+            //var dbContect = new MyCountryEntities();
+            //var cbCode = dbContect.Cities.Where(x => x.Name.Contains(selectedCity)).Select(x => x.CityCode).ToString();//
+            //dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text,cbCode);
+
             dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text);
         }
 
@@ -46,10 +51,17 @@ namespace MyCountry.App
         {
             var dbContect = new MyCountryEntities();
             var query = dbContect.Districts as IQueryable<District>;
-
-            if (!string.IsNullOrEmpty(search))
+            
+            if (!string.IsNullOrEmpty(search))//
             {
-                query = query.Where(x => x.DistrictCode.Contains(search) || x.Name.Contains(search));
+                if (cityCode != "")
+                {
+                    query = query.Where(x => (x.DistrictCode.Contains(search) || x.Name.Contains(search)) && x.CityCode.Contains(cityCode));//
+                }
+                else
+                {
+                    query = query.Where(x => x.DistrictCode.Contains(search) || x.Name.Contains(search));
+                }               
             }
 
             var result = query.Select(x => new DistrictViewModel
@@ -57,17 +69,22 @@ namespace MyCountry.App
                 DistrictCode = x.DistrictCode,
                 DistrictName = x.Name,
                 CityCode = x.CityCode,
-                CityName = x.City.Name
-            }).ToList();
+                CityName = x.City.Name//Join
+            }).OrderBy(x => x.DistrictCode).ToList();
 
             return result;
         }
 
-        private void cmbCity_SelectedValueChanged(object sender, EventArgs e)
+        private void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //var dbContect = new MyCountryEntities();
-            //string selected = cmbCity.SelectedValue.ToString();
-            //dgvDistrictList.DataSource = dbContect.Districts.Where(x => x.City.Name == selected).ToList();
+            //string selectedCity = cmbCity.SelectedValue.ToString();
+        }
+
+        private void btnClearSearch_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            cmbCity.SelectedIndex = -1;
+            dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text);
         }
     }
 }
