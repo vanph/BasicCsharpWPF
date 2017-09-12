@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\DistrictViewModel.cs" />
     <Compile Include="View\DistrictDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +98,9 @@
       <Project>{427abcf7-a5ee-4356-af84-488327fe0cfc}</Project>
       <Name>MyCountry.DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
