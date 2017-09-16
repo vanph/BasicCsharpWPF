@@ -7,7 +7,7 @@ namespace Basics
     {
         static void DisplayValue(int? num)
         {
-            if (num.HasValue == true)
+            if (num.HasValue)//num != null
             {
                 Console.WriteLine("num = " + num);
             }

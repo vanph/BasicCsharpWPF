@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\IMyCountryBusiness.cs" />
     <Compile Include="ViewModel\DistrictViewModel.cs" />
     <Compile Include="View\DistrictDetailForm.cs">
       <SubType>Form</SubType>
@@ -67,6 +68,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Business\MyCountryBusiness.cs" />
     <EmbeddedResource Include="View\DistrictListForm.resx">
       <DependentUpon>DistrictListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,8 +101,6 @@
       <Name>MyCountry.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace MyCountry.App
+﻿namespace MyCountry.App.View
 {
     partial class DistrictListForm
     {
@@ -188,10 +188,12 @@
             this.Column2,
             this.Column3});
             this.dgvDistrictList.Location = new System.Drawing.Point(16, 48);
+            this.dgvDistrictList.MultiSelect = false;
             this.dgvDistrictList.Name = "dgvDistrictList";
             this.dgvDistrictList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDistrictList.Size = new System.Drawing.Size(952, 304);
             this.dgvDistrictList.TabIndex = 1;
+            this.dgvDistrictList.SelectionChanged += new System.EventHandler(this.dgvDistrictList_SelectionChanged);
             // 
             // Column1
             // 
@@ -242,6 +244,7 @@
             this.button6.TabIndex = 2;
             this.button6.Text = "Delete";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
