@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using MyCountry.DataAccess.Persistence;
 using MyCountry.App.ViewModel;
@@ -85,6 +83,42 @@ namespace MyCountry.App
             txtSearch.Text = "";
             cmbCity.SelectedIndex = -1;
             dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Export districts to csv file.
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|csv files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            //Save file with a saveFileDialog
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var districts = dgvDistrictList.DataSource as IEnumerable<DistrictViewModel>;
+
+                var str = new StringBuilder();
+
+                foreach (var district in districts)
+                {
+                    var properties = district.GetType().GetProperties();
+                    for (var i = 0; i < properties.Length; i++)
+                    {
+                        var propInfo = properties[i];
+                        if (propInfo.Name != "CityCode")
+                        {
+                            if (i == properties.Length - 1)
+                            {
+                                str.AppendLine(propInfo.GetValue(district).ToString());
+                            }
+                            else
+                            {
+                                str.Append($"{propInfo.GetValue(district)},");
+                            }
+                        }                        
+                    }
+                }
+                File.WriteAllText(saveFileDialog1.FileName, str.ToString(), Encoding.UTF8);
+            }
         }
     }
 }
