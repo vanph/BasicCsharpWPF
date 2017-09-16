@@ -39,12 +39,10 @@ namespace MyCountry.App
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //string selectedCity = cmbCity.SelectedValue.ToString();//
-            //var dbContect = new MyCountryEntities();
-            //var cbCode = dbContect.Cities.Where(x => x.Name.Contains(selectedCity)).Select(x => x.CityCode).ToString();//
-            //dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text,cbCode);
+            var city = cmbCity.SelectedItem as City;
+            var cityCode = city != null ? city.CityCode : string.Empty;
 
-            dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text);
+            dgvDistrictList.DataSource = SearchDistricts(txtSearch.Text, cityCode);
         }
 
         private static List<DistrictViewModel> SearchDistricts(string search, string cityCode ="" )
@@ -52,7 +50,7 @@ namespace MyCountry.App
             var dbContect = new MyCountryEntities();
             var query = dbContect.Districts as IQueryable<District>;
             
-            if (!string.IsNullOrEmpty(search))//
+            if (!string.IsNullOrEmpty(search))
             {
                 if (cityCode != "")
                 {
@@ -62,6 +60,13 @@ namespace MyCountry.App
                 {
                     query = query.Where(x => x.DistrictCode.Contains(search) || x.Name.Contains(search));
                 }               
+            }
+            else
+            {
+                if (cityCode != "")
+                {
+                    query = query.Where(x => x.CityCode.Contains(cityCode));
+                }                
             }
 
             var result = query.Select(x => new DistrictViewModel
@@ -73,11 +78,6 @@ namespace MyCountry.App
             }).OrderBy(x => x.DistrictCode).ToList();
 
             return result;
-        }
-
-        private void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //string selectedCity = cmbCity.SelectedValue.ToString();
         }
 
         private void btnClearSearch_Click(object sender, EventArgs e)
