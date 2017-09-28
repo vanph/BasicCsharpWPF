@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,8 @@ namespace MyCountry.App.View
     public partial class DistrictListForm : Form
     {
         private readonly IMyCountryBusiness _myCountryBusiness;
-        
+        private DistrictDetailForm districtDetailForm = new DistrictDetailForm();
+
         public DistrictListForm()
         {
             InitializeComponent();
@@ -81,7 +81,9 @@ namespace MyCountry.App.View
 
         private void ExportDistricts()
         {
-            var districtViewModels = dgvDistrictList.DataSource as IEnumerable<DistrictViewModel>;
+            var city = cmbCity.SelectedItem as City;
+            var cityCode = city != null ? city.CityCode : string.Empty;
+            var districtViewModels = _myCountryBusiness.SearchDistricts(txtSearch.Text, cityCode);
 
             var str = new StringBuilder();
 
@@ -117,11 +119,14 @@ namespace MyCountry.App.View
                 if (districtInfo != null)
                 {
                     //update infor
+                    lblDistrictCode.Text = districtInfo.DistrictCode;
+                    lblDistrictName.Text = districtInfo.DistrictName;
+                    lblCityName.Text = districtInfo.CityName;
                 }
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvDistrictList.SelectedRows.Count > 0)
             {
@@ -148,6 +153,13 @@ namespace MyCountry.App.View
                 MessageBox.Show($@"Please select a district to delete", @"Message", MessageBoxButtons.OK,
                     MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            
+            districtDetailForm.Show();
+            //DistrictDetailForm   
         }
     }
 }
