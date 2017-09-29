@@ -13,8 +13,7 @@ namespace MyCountry.App.View
     public partial class DistrictListForm : Form
     {
         private readonly IMyCountryBusiness _myCountryBusiness;
-        private DistrictDetailForm districtDetailForm = new DistrictDetailForm();
-
+        
         public DistrictListForm()
         {
             InitializeComponent();
@@ -157,9 +156,35 @@ namespace MyCountry.App.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
-            districtDetailForm.Show();
-            //DistrictDetailForm   
+            var frmDetail = new DistrictDetailForm(true);
+            var dialogResult = frmDetail.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                MessageBox.Show(@"Successfully added district", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SearchDistrictInformations();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvDistrictList.SelectedRows.Count > 0)
+            {
+                var districtViewModel = dgvDistrictList.SelectedRows[0].DataBoundItem as DistrictViewModel;
+                if (districtViewModel != null)
+                {
+                    var frmDetail = new DistrictDetailForm(false, districtViewModel.DistrictCode);
+                    var dialogResult = frmDetail.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        MessageBox.Show(@"Successfully edited the district", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SearchDistrictInformations();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Please select a district to edit", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
