@@ -194,9 +194,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        public System.Windows.Forms.TextBox txtDistrictType;
-        public System.Windows.Forms.TextBox txtDistrictName;
-        public System.Windows.Forms.TextBox txtDistictCode;
-        public System.Windows.Forms.ComboBox cmbCity;
+        private System.Windows.Forms.TextBox txtDistrictType;
+        private System.Windows.Forms.TextBox txtDistrictName;
+        private System.Windows.Forms.TextBox txtDistictCode;
+        private System.Windows.Forms.ComboBox cmbCity;
     }
 }
