@@ -186,5 +186,22 @@ namespace MyCountry.App.View
                 MessageBox.Show(@"Please select a district to edit", @"Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmCity = new CityForm();
+            var dialogResult = frmCity.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var about = new MyCountryAppAboutBox();
+            about.ShowDialog();
+        }
     }
 }
