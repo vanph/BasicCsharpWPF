@@ -52,5 +52,20 @@ namespace MyCountry.App.Business
 
             return result;
         }
+
+        public List<CityInfomation> GetCityInfomations()
+        {
+            var dbContect = new MyCountryEntities();
+            var cityInfomations = dbContect.Districts.GroupBy(d => new { d.CityCode, d.City.Name }).Select(
+                c => new CityInfomation()
+                {
+                    CityCode = c.Key.CityCode,
+                    CityName = c.Key.Name,
+                    DistrictNames = c.Select(x => x.Name).ToList()
+
+                }).ToList();
+
+            return cityInfomations;
+        }
     }
 }

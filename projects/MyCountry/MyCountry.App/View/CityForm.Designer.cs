@@ -79,6 +79,7 @@
             this.dgvCityForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCityForm.Location = new System.Drawing.Point(0, 0);
             this.dgvCityForm.Name = "dgvCityForm";
+            this.dgvCityForm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvCityForm.Size = new System.Drawing.Size(648, 359);
             this.dgvCityForm.TabIndex = 0;
             // 
@@ -89,24 +90,24 @@
             this.Column1.HeaderText = "City Name";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 80;
+            this.Column1.Width = 74;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "DistrictsList";
+            this.Column2.DataPropertyName = "DistrictNameString";
             this.Column2.HeaderText = "Districts";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column3.DataPropertyName = "CountDistrict";
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.DataPropertyName = "Count";
             this.Column3.HeaderText = "Number of districts";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 119;
+            this.Column3.Width = 109;
             // 
             // CityForm
             // 

@@ -12,5 +12,6 @@ namespace MyCountry.App.Business
     {
         List<City> GetCities();
         List<DistrictViewModel> SearchDistricts(string search, string cityCode = "");
+        List<CityInfomation> GetCityInfomations();
     }
 }
