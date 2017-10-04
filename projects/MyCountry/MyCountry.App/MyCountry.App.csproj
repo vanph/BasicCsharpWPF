@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\IMyCountryBusiness.cs" />
+    <Compile Include="ViewModel\CityInfomation.cs" />
     <Compile Include="ViewModel\DistrictViewModel.cs" />
     <Compile Include="View\CityForm.cs">
       <SubType>Form</SubType>
