@@ -17,6 +17,9 @@ namespace MyCountry.App.View
 
             dgvCityForm.AutoGenerateColumns = false;
 
+            dgvCityForm.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvCityForm.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             _myCountryBusiness = new MyCountryBusiness();
         }
 
