@@ -203,5 +203,11 @@ namespace MyCountry.App.View
             var about = new MyCountryAppAboutBox();
             about.ShowDialog();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var frmLogin = new Login();
+            frmLogin.ShowDialog();
+        }
     }
 }
