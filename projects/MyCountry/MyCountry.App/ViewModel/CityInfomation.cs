@@ -24,6 +24,7 @@ namespace MyCountry.App.ViewModel
         //    get { return string.Join(", ", DistrictNames); }
         //} 
 
+            //Calculated property
         public int Count => DistrictNames.Count;
 
         public string DistrictNameString => string.Join(", ", DistrictNames);

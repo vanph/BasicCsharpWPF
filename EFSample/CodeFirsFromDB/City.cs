@@ -1,4 +1,4 @@
-namespace MyCountry.DataAccess.Model
+namespace CodeFirsFromDB
 {
     using System;
     using System.Collections.Generic;
@@ -17,11 +17,11 @@ namespace MyCountry.DataAccess.Model
         [Key]
         [StringLength(50)]
         public string CityCode { get; set; }
-        
+
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
-        
+
         [Required]
         [StringLength(50)]
         public string Type { get; set; }

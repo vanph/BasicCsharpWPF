@@ -195,7 +195,7 @@ namespace MyCountry.App.View
         private void cityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frmCity = new CityForm();
-            var dialogResult = frmCity.ShowDialog();
+            frmCity.ShowDialog();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)

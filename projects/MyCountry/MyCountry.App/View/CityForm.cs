@@ -25,12 +25,6 @@ namespace MyCountry.App.View
 
         private void CityForm_Load(object sender, EventArgs e)
         {
-            //var dbContect = new MyCountryEntities();
-            //var query = dbContect.Districts as IQueryable<District>;
-
-            //var result = query.GroupBy(x => x.CityCode).Select(x => new { CityName = x.Key, DistrictsList = x.ToString() });
-
-            //dgvCityForm.DataSource = result;
 
             dgvCityForm.DataSource = _myCountryBusiness.GetCityInfomations();
         }
