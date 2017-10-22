@@ -24,6 +24,18 @@
         [StringLength(50)]
         public string CityCode { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string CreatedBy { get; set; }
+
+        public DateTime ModifiedDate { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string ModifiedBy { get; set; }
+
         public virtual City City { get; set; }
     }
 }

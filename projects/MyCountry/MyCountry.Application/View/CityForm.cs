@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using MyCountry.DataAccess.Model;
-using MyCountry.DataAccess.Persistence;
-using MyCountry.App.Business;
+using MyCountry.Application.Business;
 
-namespace MyCountry.App.View
+namespace MyCountry.Application.View
 {
     public partial class CityForm : Form
     {

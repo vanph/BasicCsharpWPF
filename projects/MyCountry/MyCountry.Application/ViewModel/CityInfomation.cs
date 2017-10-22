@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyCountry.App.ViewModel
+namespace MyCountry.Application.ViewModel
 {
     public class CityInfomation
     {

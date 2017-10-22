@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{958A066A-358D-48DA-8674-BEEA9EC8F502}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MyCountry.App</RootNamespace>
-    <AssemblyName>MyCountry.App</AssemblyName>
+    <RootNamespace>MyCountry.Application</RootNamespace>
+    <AssemblyName>MyCountry.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -105,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

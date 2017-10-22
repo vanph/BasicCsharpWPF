@@ -3,12 +3,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MyCountry.App.Business;
-using MyCountry.App.ViewModel;
+using MyCountry.Application.Business;
+using MyCountry.Application.ViewModel;
 using MyCountry.DataAccess.Model;
 using MyCountry.DataAccess.Persistence;
 
-namespace MyCountry.App.View
+namespace MyCountry.Application.View
 {
     public partial class DistrictListForm : Form
     {

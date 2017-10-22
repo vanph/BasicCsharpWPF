@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyCountry.App.ViewModel;
+using MyCountry.Application.ViewModel;
 using MyCountry.DataAccess.Model;
 using MyCountry.DataAccess.Persistence;
 
-namespace MyCountry.App.Business
+namespace MyCountry.Application.Business
 {
     public class MyCountryBusiness: IMyCountryBusiness
     {

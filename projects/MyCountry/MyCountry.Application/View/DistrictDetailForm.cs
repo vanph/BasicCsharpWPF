@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using MyCountry.App.Business;
-using MyCountry.App.ViewModel;
+using MyCountry.Application.Business;
 using MyCountry.DataAccess.Model;
 using MyCountry.DataAccess.Persistence;
 
-namespace MyCountry.App.View
+namespace MyCountry.Application.View
 {
     public sealed partial class DistrictDetailForm : Form // vì sao phải sealed?
     {
