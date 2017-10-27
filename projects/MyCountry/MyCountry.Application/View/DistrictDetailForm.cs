@@ -65,23 +65,7 @@ namespace MyCountry.Application.View
             {
                 if (_isAddNew)
                 {
-                    
-                    var dbContext = new MyCountryEntities();
-                    var city = cmbCity.SelectedItem as City;
-
-                    var district = new District
-                    {
-                        Name = txtDistrictName.Text,
-                        DistrictCode = txtDistictCode.Text,
-                        Type = txtDistrictType.Text,
-                        CityCode = city != null ? city.CityCode : string.Empty,
-                        CreatedDate = DateTime.Now,
-                        CreatedBy = "Anonymous",
-                        ModifiedDate = DateTime.Now,
-                        ModifiedBy = "Anonymous"
-                    };
-                    dbContext.Districts.Add(district);
-                    dbContext.SaveChanges();
+                    _cityBusiness.Add(cmbCity,txtDistrictName, txtDistictCode, txtDistrictType);
                 }
                 else
                 {
