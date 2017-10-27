@@ -9,7 +9,7 @@ namespace MyCountry.Application.View
 {
     public sealed partial class DistrictDetailForm : Form // vì sao phải sealed?
     {
-        private readonly MyCountryBusiness _myCountryBusiness;
+        private readonly ICityBusiness _cityBusiness;
         private readonly bool _isAddNew;
         private readonly string _selectedCode;
 
@@ -24,12 +24,12 @@ namespace MyCountry.Application.View
 
             Text = _isAddNew ? @"Add new District" : @"Edit District";
 
-            _myCountryBusiness = new MyCountryBusiness();
+            _cityBusiness = new CityBusiness();
         }
 
         private void DistrictDetailForm_Load(object sender, System.EventArgs e)
         {
-            var cities = _myCountryBusiness.GetCities();
+            var cities = _cityBusiness.GetCities();
             cmbCity.DataSource = cities;
             cmbCity.DisplayMember = nameof(City.Name);
             if (!_isAddNew)

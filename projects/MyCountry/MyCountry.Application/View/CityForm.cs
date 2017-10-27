@@ -6,7 +6,7 @@ namespace MyCountry.Application.View
 {
     public partial class CityForm : Form
     {
-        private readonly IMyCountryBusiness _myCountryBusiness;
+        private readonly ICityBusiness _cityBusiness;
 
         public CityForm()
         {
@@ -17,13 +17,13 @@ namespace MyCountry.Application.View
             dgvCityForm.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvCityForm.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            _myCountryBusiness = new MyCountryBusiness();
+            _cityBusiness = new CityBusiness();
         }
 
         private void CityForm_Load(object sender, EventArgs e)
         {
 
-            dgvCityForm.DataSource = _myCountryBusiness.GetCityInfomations();
+            dgvCityForm.DataSource = _cityBusiness.GetCityInfomations();
         }
     }
 }

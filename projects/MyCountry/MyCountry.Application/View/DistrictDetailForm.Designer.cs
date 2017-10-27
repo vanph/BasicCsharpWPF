@@ -57,13 +57,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(344, 265);
+            this.panel1.Size = new System.Drawing.Size(344, 188);
             this.panel1.TabIndex = 0;
             // 
             // txtDistrictType
             // 
             this.txtDistrictType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtDistrictType.Location = new System.Drawing.Point(152, 167);
+            this.txtDistrictType.Location = new System.Drawing.Point(152, 142);
             this.txtDistrictType.Name = "txtDistrictType";
             this.txtDistrictType.Size = new System.Drawing.Size(168, 22);
             this.txtDistrictType.TabIndex = 7;
@@ -71,7 +71,7 @@
             // txtDistrictName
             // 
             this.txtDistrictName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtDistrictName.Location = new System.Drawing.Point(152, 132);
+            this.txtDistrictName.Location = new System.Drawing.Point(152, 107);
             this.txtDistrictName.Name = "txtDistrictName";
             this.txtDistrictName.Size = new System.Drawing.Size(168, 22);
             this.txtDistrictName.TabIndex = 6;
@@ -79,7 +79,7 @@
             // txtDistictCode
             // 
             this.txtDistictCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtDistictCode.Location = new System.Drawing.Point(152, 97);
+            this.txtDistictCode.Location = new System.Drawing.Point(152, 72);
             this.txtDistictCode.Name = "txtDistictCode";
             this.txtDistictCode.Size = new System.Drawing.Size(168, 22);
             this.txtDistictCode.TabIndex = 5;
@@ -88,7 +88,7 @@
             // 
             this.cmbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmbCity.FormattingEnabled = true;
-            this.cmbCity.Location = new System.Drawing.Point(152, 60);
+            this.cmbCity.Location = new System.Drawing.Point(152, 35);
             this.cmbCity.Name = "cmbCity";
             this.cmbCity.Size = new System.Drawing.Size(168, 24);
             this.cmbCity.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             this.lblDistrictType.AutoSize = true;
             this.lblDistrictType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDistrictType.Location = new System.Drawing.Point(23, 173);
+            this.lblDistrictType.Location = new System.Drawing.Point(23, 148);
             this.lblDistrictType.Name = "lblDistrictType";
             this.lblDistrictType.Size = new System.Drawing.Size(83, 16);
             this.lblDistrictType.TabIndex = 3;
@@ -107,7 +107,7 @@
             // 
             this.lblDistrictName.AutoSize = true;
             this.lblDistrictName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDistrictName.Location = new System.Drawing.Point(23, 138);
+            this.lblDistrictName.Location = new System.Drawing.Point(23, 113);
             this.lblDistrictName.Name = "lblDistrictName";
             this.lblDistrictName.Size = new System.Drawing.Size(88, 16);
             this.lblDistrictName.TabIndex = 2;
@@ -117,7 +117,7 @@
             // 
             this.lblDistrictCode.AutoSize = true;
             this.lblDistrictCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDistrictCode.Location = new System.Drawing.Point(23, 103);
+            this.lblDistrictCode.Location = new System.Drawing.Point(23, 78);
             this.lblDistrictCode.Name = "lblDistrictCode";
             this.lblDistrictCode.Size = new System.Drawing.Size(84, 16);
             this.lblDistrictCode.TabIndex = 1;
@@ -127,7 +127,7 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCity.Location = new System.Drawing.Point(23, 68);
+            this.lblCity.Location = new System.Drawing.Point(23, 43);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(30, 16);
             this.lblCity.TabIndex = 0;
@@ -138,15 +138,15 @@
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 265);
+            this.panel2.Location = new System.Drawing.Point(0, 188);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(344, 100);
+            this.panel2.Size = new System.Drawing.Size(344, 48);
             this.panel2.TabIndex = 1;
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.Location = new System.Drawing.Point(201, 34);
+            this.btnCancel.Location = new System.Drawing.Point(240, 12);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.TabIndex = 1;
@@ -157,7 +157,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(71, 34);
+            this.btnSave.Location = new System.Drawing.Point(152, 12);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 24);
             this.btnSave.TabIndex = 0;
@@ -169,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 442);
+            this.ClientSize = new System.Drawing.Size(344, 245);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "DistrictDetailForm";

@@ -12,8 +12,9 @@ namespace MyCountry.Application.View
 {
     public partial class DistrictListForm : Form
     {
-        private readonly IMyCountryBusiness _myCountryBusiness;
-        
+        private readonly IDistrictBusiness _districtBusiness;
+        private readonly ICityBusiness _cityBusiness;
+
         public DistrictListForm()
         {
             InitializeComponent();
@@ -24,8 +25,10 @@ namespace MyCountry.Application.View
 
             dgvDistrictList.AutoGenerateColumns = false;
             
-            _myCountryBusiness = new MyCountryBusiness();
-            
+            _districtBusiness = new DistrictBusiness();
+            _cityBusiness = new CityBusiness();
+
+
             //Dependency Injection - IoC
         }
         
@@ -39,7 +42,7 @@ namespace MyCountry.Application.View
 
         private void LoadCities()
         {
-            cmbCity.DataSource = _myCountryBusiness.GetCities();
+            cmbCity.DataSource = _cityBusiness.GetCities();
             cmbCity.DisplayMember = nameof(City.Name);
             cmbCity.ValueMember = nameof(City.CityCode);
             cmbCity.SelectedIndex = -1;
@@ -55,14 +58,14 @@ namespace MyCountry.Application.View
             var city = cmbCity.SelectedItem as City;
             var cityCode = city != null ? city.CityCode : string.Empty;
 
-            dgvDistrictList.DataSource = _myCountryBusiness.SearchDistricts(txtSearch.Text, cityCode);
+            dgvDistrictList.DataSource = _districtBusiness.SearchDistricts(txtSearch.Text, cityCode);
         }
 
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text = "";
             cmbCity.SelectedIndex = -1;
-            dgvDistrictList.DataSource = _myCountryBusiness.SearchDistricts(txtSearch.Text);
+            dgvDistrictList.DataSource = _districtBusiness.SearchDistricts(txtSearch.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -82,7 +85,7 @@ namespace MyCountry.Application.View
         {
             var city = cmbCity.SelectedItem as City;
             var cityCode = city != null ? city.CityCode : string.Empty;
-            var districtViewModels = _myCountryBusiness.SearchDistricts(txtSearch.Text, cityCode);
+            var districtViewModels = _districtBusiness.SearchDistricts(txtSearch.Text, cityCode);
 
             var str = new StringBuilder();
 
