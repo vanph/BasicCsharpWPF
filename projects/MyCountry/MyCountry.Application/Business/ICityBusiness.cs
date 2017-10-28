@@ -9,6 +9,5 @@ namespace MyCountry.Application.Business
     {
         List<City> GetCities();
         List<CityInfomation> GetCityInfomations();
-        void Add(ComboBox cmbCity, TextBox txtDistrictName, TextBox txtDistictCode, TextBox txtDistrictType);
     }
 }

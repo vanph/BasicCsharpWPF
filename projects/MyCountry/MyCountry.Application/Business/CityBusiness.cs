@@ -44,24 +44,6 @@ namespace MyCountry.Application.Business
             return cityInfomations;
         }
 
-        public void Add(ComboBox cmbCity, TextBox txtDistrictName, TextBox txtDistictCode, TextBox txtDistrictType)
-        {
-            var dbContext = new MyCountryEntities();
-            var city = cmbCity.SelectedItem as City;
-
-            var district = new District
-            {
-                Name = txtDistrictName.Text,
-                DistrictCode = txtDistictCode.Text,
-                Type = txtDistrictType.Text,
-                CityCode = city != null ? city.CityCode : string.Empty,
-                CreatedDate = DateTime.Now,
-                CreatedBy = "Anonymous",
-                ModifiedDate = DateTime.Now,
-                ModifiedBy = "Anonymous"
-            };
-            dbContext.Districts.Add(district);
-            dbContext.SaveChanges();
-        }
+        
     }
 }

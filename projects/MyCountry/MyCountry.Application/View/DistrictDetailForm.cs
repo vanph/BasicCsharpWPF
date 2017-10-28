@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using MyCountry.Application.Business;
+using MyCountry.Application.Exceptions;
 using MyCountry.DataAccess.Model;
 using MyCountry.DataAccess.Persistence;
 
@@ -10,6 +11,7 @@ namespace MyCountry.Application.View
     public sealed partial class DistrictDetailForm : Form // vì sao phải sealed?
     {
         private readonly ICityBusiness _cityBusiness;
+        private readonly IDistrictBusiness _districtBusiness;
         private readonly bool _isAddNew;
         private readonly string _selectedCode;
 
@@ -25,6 +27,7 @@ namespace MyCountry.Application.View
             Text = _isAddNew ? @"Add new District" : @"Edit District";
 
             _cityBusiness = new CityBusiness();
+            _districtBusiness = new DistrictBusiness();
         }
 
         private void DistrictDetailForm_Load(object sender, System.EventArgs e)
@@ -63,26 +66,33 @@ namespace MyCountry.Application.View
         {
             try
             {
+                var city = cmbCity.SelectedItem as City;
+                var cityCode = city != null ? city.CityCode : string.Empty;
+
+                var districtParameter = new District
+                {
+                    Name = txtDistrictName.Text,
+                    DistrictCode = txtDistictCode.Text,
+                    Type = txtDistrictType.Text,
+                    CityCode = cityCode
+                };
+
                 if (_isAddNew)
                 {
-                    _cityBusiness.Add(cmbCity,txtDistrictName, txtDistictCode, txtDistrictType);
+
+
+                    _districtBusiness.Add(districtParameter);
                 }
                 else
                 {
-                    var dbContext = new MyCountryEntities();
-                    var district = dbContext.Districts.FirstOrDefault(x => x.DistrictCode == _selectedCode);
-                    if (district != null)
-                    {
-                        district.Name = txtDistrictName.Text;
-                        district.Type = txtDistrictType.Text;
-                        district.ModifiedDate = DateTime.Now;
-                        district.ModifiedBy = "Anonymous";
-
-                        dbContext.SaveChanges();
-                    }
+                    _districtBusiness.Update(districtParameter);
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+            }
+            catch (DistrictValiationException ex)
+            {
+                MessageBox.Show(ex.Message, @"Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception exception)
             {

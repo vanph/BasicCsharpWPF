@@ -56,6 +56,9 @@
     <Compile Include="Business\DistrictBusiness.cs" />
     <Compile Include="Business\ICityBusiness.cs" />
     <Compile Include="Business\IDistrictBusiness.cs" />
+    <Compile Include="Exceptions\DistrictValiationException.cs" />
+    <Compile Include="Security\ServiceContext.cs" />
+    <Compile Include="Utility\DateTimeUtil.cs" />
     <Compile Include="ViewModel\CityInfomation.cs" />
     <Compile Include="ViewModel\DistrictViewModel.cs" />
     <Compile Include="View\CityForm.cs">
