@@ -1,22 +1,23 @@
-using MyCountry.DataAccess.Model;
-
-namespace MyCountry.DataAccess.Persistence
+namespace CodeFirsFromDB
 {
+    using System;
     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
 
-    public partial class MyCountryEntities : DbContext
+    public partial class Model1 : DbContext
     {
-        public MyCountryEntities()
-            : base("name=MyCountryEntities")
+        public Model1()
+            : base("name=Model1")
         {
         }
 
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<District> Districts { get; set; }
-        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
         }
     }
 }
